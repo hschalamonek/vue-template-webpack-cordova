@@ -1,4 +1,4 @@
-# vue-webpack-boilerplate with cordova support including hot-reload even on mobile
+# vue template with cordova support (hot-reload on mobile)
 
 ## Documentation
 
