@@ -22,7 +22,10 @@
     {{#lint}}
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}",
     {{/lint}}
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "cordova:dev": "node build/build-dev-cordova.js",
+    "cordova:run": "node build/build-cordova.js -- run",
+    "cordova:build": "node build/build-cordova.js -- build --release"
   },
   "dependencies": {
     "vue": "^2.5.2"{{#router}},
