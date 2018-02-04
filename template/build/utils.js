@@ -3,6 +3,8 @@ const path = require('path')
 const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
+const fs = require('fs')
+const { DOMParser, XMLSerializer } = require('xmldom')
 
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV === 'production'
@@ -98,4 +100,12 @@ exports.createNotifierCallback = () => {
       icon: path.join(__dirname, 'logo.png')
     })
   }
+}
+
+exports.replaceCordovaConfigContentSrc = function (newSrc) {
+  const xml = fs.readFileSync('cordova/config.xml', 'utf-8')
+  const dom =  new DOMParser().parseFromString(xml);
+  dom.getElementsByTagName('content')[0].setAttribute('src', newSrc)
+  const newXml = new XMLSerializer().serializeToString(dom);
+  fs.writeFileSync('cordova/config.xml', newXml, 'utf-8')
 }
