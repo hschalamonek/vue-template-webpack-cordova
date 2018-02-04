@@ -11,8 +11,25 @@ npm install
 # serve with hot reload at localhost:8080
 npm run dev
 
+# add cordova platform (android or ios)
+cd cordova
+cordova platform add [platform]
+
+# check cordova requirements
+cd cordova
+cordova requirements
+
+# serve at 0.0.0.0:8080 and run cordova project which connects to the dev-server via the host's external IP (hot reload even on mobile)
+npm run cordova:dev
+
 # build for production with minification
 npm run build
+
+# build for production with minification for cordova release
+npm run cordova:build
+
+# build for production with minification for cordova and run project
+npm run cordova:run
 
 # build for production and view the bundle analyzer report
 npm run build --report
