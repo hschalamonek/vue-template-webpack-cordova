@@ -104,8 +104,8 @@ exports.createNotifierCallback = () => {
 
 exports.replaceCordovaConfigContentSrc = function (newSrc) {
   const xml = fs.readFileSync('cordova/config.xml', 'utf-8')
-  const dom =  new DOMParser().parseFromString(xml);
+  const dom =  new DOMParser().parseFromString(xml)
   dom.getElementsByTagName('content')[0].setAttribute('src', newSrc)
-  const newXml = new XMLSerializer().serializeToString(dom);
+  const newXml = new XMLSerializer().serializeToString(dom)
   fs.writeFileSync('cordova/config.xml', newXml, 'utf-8')
 }
